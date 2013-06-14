@@ -9,4 +9,18 @@ use Qwer\UserBundle\Entity\User as QWERUser;
  */
 class User extends QWERUser
 {
+    private $lockedExpiresAt;
+    
+    public function getLockedExpiresAt()
+    {
+        return $this->lockedExpiresAt;
+    }
+
+    public function setLockedExpiresAt($lockedExpiresAt)
+    {
+        $this->lockedExpiresAt = $lockedExpiresAt;
+    }
+
+
+
 }
