@@ -7,6 +7,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 
 class UserController extends FOSRestController
 {
+
     public function postLockUserAction(Request $request, $userId)
     {
         $user = $this->getUserById($userId);
@@ -18,8 +19,7 @@ class UserController extends FOSRestController
         $view = $this->view($result);
         return $this->handleView($view);
     }
-    
-    
+
     /**
      * 
      * @return \Galaxy\UserBundle\Entity\User
@@ -30,4 +30,12 @@ class UserController extends FOSRestController
         $user = $em->getRepository("GalaxyUserBundle:User")->find($userId);
         return $user;
     }
+
+    public function getUserIdAction($userId)
+    {
+        $user = $this->getUserById($userId);
+        $view = $this->view($user);
+        return $this->handleView($view);
+    }
+
 }
